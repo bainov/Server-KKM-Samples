@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{66B6789D-BA9A-4973-835A-B2DA81288B85}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClientPrint</RootNamespace>
+    <AssemblyName>ClientPrint</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>bin\Debug\ClientPrint.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>bin\Release\ClientPrint.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientPr.cs" />
+    <Compile Include="Components\Component.cs" />
+    <Compile Include="Components\IAsyncEvent.cs" />
+    <Compile Include="Components\IErrorLog.cs" />
+    <Compile Include="Components\ILanguageExtender.cs" />
+    <Compile Include="Components\IInitDone.cs" />
+    <Compile Include="Components\IStatusLine.cs" />
+    <Compile Include="Error\Error.cs" />
+    <Compile Include="Forms\DialogCheckCorrection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DialogCheckCorrection.Designer.cs">
+      <DependentUpon>DialogCheckCorrection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DialogContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DialogContact.Designer.cs">
+      <DependentUpon>DialogContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Message.Designer.cs">
+      <DependentUpon>Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WaitPrintResultcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WaitPrintResultcs.Designer.cs">
+      <DependentUpon>WaitPrintResultcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IConfigure.cs" />
+    <Compile Include="IKostanova.cs" />
+    <Compile Include="IniFile.cs" />
+    <Compile Include="IRbsoftExtension.cs" />
+    <Compile Include="ICommon.cs" />
+    <Compile Include="IFr2001.cs" />
+    <Compile Include="IKkt2001.cs" />
+    <Compile Include="IKKT2002.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Parse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PrintServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Timeout.cs" />
+    <Compile Include="Документы\ПараметрыФискализации.cs" />
+    <Compile Include="Документы\Результат.cs" />
+    <Compile Include="Документы\ЧекКоррекции.cs" />
+    <Compile Include="Документы\DockBase.cs" />
+    <Compile Include="Документы\ВнесениеВыемка.cs" />
+    <Compile Include="Документы\Заказ.cs" />
+    <Compile Include="Документы\Отчет.cs" />
+    <Compile Include="Документы\Текст.cs" />
+    <Compile Include="Документы\Чек.cs" />
+    <Compile Include="Документы\Штрихкод.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\DialogCheckCorrection.resx">
+      <DependentUpon>DialogCheckCorrection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DialogContact.resx">
+      <DependentUpon>DialogContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Message.resx">
+      <DependentUpon>Message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WaitPrintResultcs.resx">
+      <DependentUpon>WaitPrintResultcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="key.snk" />
+    <None Include="Properties\DataSources\ClientPrint.Forms.Data.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\001-delete.png" />
+    <None Include="Service References\PrintServiceRef\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.BarcodeDoc.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.CancelCheck.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.Cash.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.Check.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.CheckCorrection.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.DeviceSettings.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.DocumentHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.ErrorCode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.FRParametersKKT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.FRStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.LicStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.OpenDrawer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.OpenShift.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.Order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.ParametersFiscal.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.Report.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\ClientPrint.PrintServiceRef.TextFile.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PrintServiceRef\DeviceNetBase.Device.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrintServiceRef\DeviceNetBase.Documents.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrintServiceRef\DeviceNetBase.Enums.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrintServiceRef\LicenseManager.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrintServiceRef\PrintServiceBase.Check.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrintServiceRef\service.wsdl" />
+    <None Include="Service References\PrintServiceRef\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrintServiceRef\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrintServiceRef\System.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\001-note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\001-note32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\001-technology.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\002-close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\003-sms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\004-email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\telefon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\PrintServiceRef\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrintServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrintServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrintServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Animation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Warning.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/PrintServiceBase.Check" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PrintServiceBase.Check" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/DeviceNetBase.Documents" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/DeviceNetBase.Device" />
+  <xs:complexType name="CheckBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="After" nillable="true" type="tns:ArrayOfPrintLine" />
+      <xs:element minOccurs="0" name="Before" nillable="true" type="tns:ArrayOfPrintLine" />
+      <xs:element minOccurs="0" name="Cashier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CashierVATIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeviceId" type="ser:guid" />
+      <xs:element minOccurs="0" name="DocNumber" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="DocType" type="q1:DocTypes" />
+      <xs:element minOccurs="0" name="DockId" type="ser:guid" />
+      <xs:element minOccurs="0" name="FiscalSign" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResultCode" type="xs:int" />
+      <xs:element minOccurs="0" name="ResultDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessionNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="TerminalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ver" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckBase" nillable="true" type="tns:CheckBase" />
+  <xs:complexType name="ArrayOfPrintLine">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PrintLine" nillable="true" type="tns:PrintLine" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrintLine" nillable="true" type="tns:ArrayOfPrintLine" />
+  <xs:complexType name="PrintLine">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="Alignment" type="q2:Alignment" />
+      <xs:element minOccurs="0" name="Barcode" nillable="true" type="tns:Barcode">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="Font" type="q3:PrintFont" />
+      <xs:element minOccurs="0" name="Line" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wrap" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrintLine" nillable="true" type="tns:PrintLine" />
+  <xs:complexType name="Barcode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BarcodeText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BarcodeType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Barcode" nillable="true" type="tns:Barcode" />
+  <xs:complexType name="CancelCheck">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CheckBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CancelCheck" nillable="true" type="tns:CancelCheck" />
+  <xs:complexType name="Cash">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CheckBase">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="CashType" type="q4:CashType" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Summ" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Cash" nillable="true" type="tns:Cash" />
+  <xs:complexType name="Check">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CheckBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalAttribute" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressSettle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AdvancePayment" nillable="true" type="tns:Payment" />
+          <xs:element minOccurs="0" name="AgentData" nillable="true" type="tns:CheckAgentData" />
+          <xs:element minOccurs="0" name="AgentSign" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Bonus" type="xs:double" />
+          <xs:element minOccurs="0" name="BonusLeft" type="xs:double" />
+          <xs:element minOccurs="0" name="CashPayment" nillable="true" type="tns:Payment" />
+          <xs:element minOccurs="0" name="CashProvisionPayment" nillable="true" type="tns:Payment" />
+          <xs:element minOccurs="0" name="Change" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CheckItems" nillable="true" type="tns:ArrayOfCheckItem" />
+          <xs:element minOccurs="0" name="CheckMode" type="xs:int" />
+          <xs:element minOccurs="0" name="CheckNumber" type="xs:int" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="CheckType" type="q5:CheckTypes" />
+          <xs:element minOccurs="0" name="ClientContact" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreditPayment" nillable="true" type="tns:Payment" />
+          <xs:element minOccurs="0" name="CustomerEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Department" type="xs:int" />
+          <xs:element minOccurs="0" name="DiscountValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ElectronicPayment" nillable="true" type="tns:Payment" />
+          <xs:element minOccurs="0" name="InjectSumm" type="xs:double" />
+          <xs:element minOccurs="0" name="IsFiscal" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ItemsSumm" type="xs:decimal" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DeviceNetBase.Documents" minOccurs="0" name="Output" nillable="true" type="q6:OutputParameters">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Paid" type="xs:double" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PlaceSettle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PurveyorData" nillable="true" type="tns:CheckPurveyorData" />
+          <xs:element minOccurs="0" name="SenderEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Summ" type="xs:decimal" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DeviceNetBase.Device" minOccurs="0" name="TaxType" type="q7:TaxVariants" />
+          <xs:element minOccurs="0" name="TypeClose" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Check" nillable="true" type="tns:Check" />
+  <xs:complexType name="Payment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AfterPrint" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BeforePrint" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Discount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Summ" type="xs:decimal" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="TypeClose" type="q8:PayTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Payment" nillable="true" type="tns:Payment" />
+  <xs:complexType name="CheckAgentData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MoneyTransferOperatorAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoneyTransferOperatorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoneyTransferOperatorPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoneyTransferOperatorVATIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PayingAgentOperation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PayingAgentPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReceivePaymentsOperatorPhone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckAgentData" nillable="true" type="tns:CheckAgentData" />
+  <xs:complexType name="ArrayOfCheckItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CheckItem" nillable="true" type="tns:CheckItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCheckItem" nillable="true" type="tns:ArrayOfCheckItem" />
+  <xs:complexType name="CheckItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="After" nillable="true" type="tns:PrintLine" />
+      <xs:element minOccurs="0" name="Barcode" nillable="true" type="tns:Barcode">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Before" nillable="true" type="tns:PrintLine" />
+      <xs:element minOccurs="0" name="Department" type="xs:int" />
+      <xs:element minOccurs="0" name="DiscountInfoValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DiscountValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="GoodCodeData" nillable="true" type="tns:CommodityNomenclatureCode">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="ItemType" type="q9:ItemTypes" />
+      <xs:element minOccurs="0" name="MeasurementUnit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="PaymentMode" type="q10:PaymentModes" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PurveyorDataItem" nillable="true" type="tns:CheckPurveyorData" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SignSubjectCalculationAgent" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Summ" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TaxSum" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TaxValue" type="xs:int" />
+      <xs:element minOccurs="0" name="isFiscal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="isreturn" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckItem" nillable="true" type="tns:CheckItem" />
+  <xs:complexType name="CommodityNomenclatureCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Gtin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Stamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StampType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommodityNomenclatureCode" nillable="true" type="tns:CommodityNomenclatureCode" />
+  <xs:complexType name="CheckPurveyorData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PurveyorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PurveyorPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PurveyorVATIN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckPurveyorData" nillable="true" type="tns:CheckPurveyorData" />
+  <xs:complexType name="CheckCorrection">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CheckBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdvancePayment" nillable="true" type="tns:Payment" />
+          <xs:element minOccurs="0" name="CashPayment" nillable="true" type="tns:Payment" />
+          <xs:element minOccurs="0" name="CashProvisionPayment" nillable="true" type="tns:Payment" />
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="CheckType" type="q11:CheckTypes" />
+          <xs:element minOccurs="0" name="CorrectionBaseDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CorrectionBaseName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CorrectionBaseNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreditPayment" nillable="true" type="tns:Payment" />
+          <xs:element minOccurs="0" name="ElectronicPayment" nillable="true" type="tns:Payment" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaxSum0" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TaxSum10" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TaxSum110" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TaxSum118" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TaxSum18" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TaxSumNone" type="xs:decimal" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DeviceNetBase.Device" minOccurs="0" name="TaxType" type="q12:TaxVariants" />
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="СorrectionType" type="q13:CorrectionTypes" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CheckCorrection" nillable="true" type="tns:CheckCorrection" />
+  <xs:complexType name="OpenDrawer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CheckBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DrawerNumber" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OpenDrawer" nillable="true" type="tns:OpenDrawer" />
+  <xs:complexType name="OpenShift">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CheckBase">
+        <xs:sequence>
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DeviceNetBase.Documents" minOccurs="0" name="Output" nillable="true" type="q14:OutputParameters">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OpenShift" nillable="true" type="tns:OpenShift" />
+  <xs:complexType name="ParametersFiscal">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CheckBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressSettle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AutomaticMode" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AutomaticNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BSOSing" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CalcOnlineSign" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DataEncryption" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DocumentNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FNSWebSite" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InfoChangesReasonsCodes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KKTNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OFDOrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OFDVATIN" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OfflineMode" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OperationType" type="xs:int" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PlaceSettle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrinterAutomatic" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ReasonCode" type="xs:int" />
+          <xs:element minOccurs="0" name="SaleExcisableGoods" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SenderEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServiceSign" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SignOfAgent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SignOfGambling" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SignOfLottery" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TaxVariant" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VATIN" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ParametersFiscal" nillable="true" type="tns:ParametersFiscal" />
+  <xs:complexType name="Report">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CheckBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AnulateResults" nillable="true" type="tns:ReportCounterResults" />
+          <xs:element minOccurs="0" name="AnullatesCount" type="xs:int" />
+          <xs:element minOccurs="0" name="CashInCount" type="xs:int" />
+          <xs:element minOccurs="0" name="CashInDrawer" type="xs:double" />
+          <xs:element minOccurs="0" name="CashInSumm" type="xs:double" />
+          <xs:element minOccurs="0" name="CashOutCount" type="xs:int" />
+          <xs:element minOccurs="0" name="CashOutSumm" type="xs:double" />
+          <xs:element minOccurs="0" name="KKMSerialNumber" nillable="true" type="xs:string" />
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DeviceNetBase.Documents" minOccurs="0" name="Output" nillable="true" type="q15:OutputParameters">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Proceeds" type="xs:double" />
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="ReportType" type="q16:ReportType" />
+          <xs:element minOccurs="0" name="ReturnResults" nillable="true" type="tns:ReportCounterResults" />
+          <xs:element minOccurs="0" name="ReturnsCount" type="xs:int" />
+          <xs:element minOccurs="0" name="SaleResults" nillable="true" type="tns:ReportCounterResults" />
+          <xs:element minOccurs="0" name="SalesCount" type="xs:int" />
+          <xs:element minOccurs="0" name="SessionTotal" type="xs:double" />
+          <xs:element minOccurs="0" name="StornoCount" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Report" nillable="true" type="tns:Report" />
+  <xs:complexType name="ReportCounterResults">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cardsumm" type="xs:double" />
+      <xs:element minOccurs="0" name="CashSumm" type="xs:double" />
+      <xs:element minOccurs="0" name="CreditSumm" type="xs:double" />
+      <xs:element minOccurs="0" name="OtherSumm" type="xs:double" />
+      <xs:element minOccurs="0" name="Summ" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportCounterResults" nillable="true" type="tns:ReportCounterResults" />
+  <xs:complexType name="ArrayOfReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Report" nillable="true" type="tns:Report" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReport" nillable="true" type="tns:ArrayOfReport" />
+  <xs:complexType name="ArrayOfCheck">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Check" nillable="true" type="tns:Check" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCheck" nillable="true" type="tns:ArrayOfCheck" />
+</xs:schema>

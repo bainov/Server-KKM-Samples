@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DeviceNetBase.Device" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DeviceNetBase.Device" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:simpleType name="TaxVariants">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ОСН" />
+      <xs:enumeration value="УСН" />
+      <xs:enumeration value="УСНД_Р" />
+      <xs:enumeration value="ЕНВД" />
+      <xs:enumeration value="ЕСН" />
+      <xs:enumeration value="ПСН" />
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">999</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TaxVariants" nillable="true" type="tns:TaxVariants" />
+  <xs:complexType name="DeviceSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessPassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdvancePaymentTypeClose" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="AtolModel" type="q1:AtolModels" />
+      <xs:element minOccurs="0" name="BaudRate" type="xs:int" />
+      <xs:element minOccurs="0" name="CashProvisionTypeClose" type="xs:int" />
+      <xs:element minOccurs="0" name="CashTypeClose" type="xs:int" />
+      <xs:element minOccurs="0" name="Cashier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CashierVatin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CharLength" type="xs:int" />
+      <xs:element minOccurs="0" name="CreditTypeClose" type="xs:int" />
+      <xs:element minOccurs="0" name="CutSymbol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DayDifferenceAlert" type="xs:int" />
+      <xs:element minOccurs="0" name="DelaySeparation" type="xs:int" />
+      <xs:element minOccurs="0" name="DeviceId" type="ser:guid" />
+      <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="DeviceType" type="q2:DeviceType" />
+      <xs:element minOccurs="0" name="EighteenTax" type="xs:int" />
+      <xs:element minOccurs="0" name="ElectronicPaymentTypeClose" type="xs:int" />
+      <xs:element minOccurs="0" name="IPaddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsControlSendingData" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsElectronically" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPrintReporForWorkPlacesBeforeZReport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsReplaceNds0toWithoutNds" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUseDefaultCashierAlways" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUseDefaultCashierVatinAlways" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUseDefaultItemTypeAndPaymentMode" type="xs:boolean" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="ItemType" type="q3:ItemTypes" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="MethodConnection" type="q4:MethodsConnection" />
+      <xs:element minOccurs="0" name="OverEighteenTax" type="xs:int" />
+      <xs:element minOccurs="0" name="OverTenTax" type="xs:int" />
+      <xs:element minOccurs="0" name="OverTwentyTax" type="xs:int" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="PaymentMode" type="q5:PaymentModes" />
+      <xs:element minOccurs="0" name="PortNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="RedLog" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReplaceSessions" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SenderEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShowInfoAdditional" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TCPport" type="xs:int" />
+      <xs:element minOccurs="0" name="TaxVariant" type="tns:TaxVariants" />
+      <xs:element minOccurs="0" name="TaxVariantReplace" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TenTax" type="xs:int" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TextAfter" nillable="true" type="q6:ArrayOfstring" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TextBefore" nillable="true" type="q7:ArrayOfstring" />
+      <xs:element minOccurs="0" name="TwentyTax" type="xs:int" />
+      <xs:element minOccurs="0" name="UseAccessPassword" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UseVat18" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WithoutTax" type="xs:int" />
+      <xs:element minOccurs="0" name="ZeroTax" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceSettings" nillable="true" type="tns:DeviceSettings" />
+  <xs:complexType name="ArrayOfDeviceSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceSettings" nillable="true" type="tns:DeviceSettings" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeviceSettings" nillable="true" type="tns:ArrayOfDeviceSettings" />
+  <xs:complexType name="FRStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CashSumm" type="xs:double" />
+      <xs:element minOccurs="0" name="SessionNumber" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FRStatus" nillable="true" type="tns:FRStatus" />
+  <xs:complexType name="AtolFRStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FRStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdvancedMode" type="xs:int" />
+          <xs:element minOccurs="0" name="BatteryLow" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BufferingMode" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CheckNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="CheckPaperPresent" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CheckState" type="xs:int" />
+          <xs:element minOccurs="0" name="ControlPaperPresent" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CoverOpened" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Day" type="xs:int" />
+          <xs:element minOccurs="0" name="DeviceStatus" type="xs:int" />
+          <xs:element minOccurs="0" name="DeviceStatusDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DrawerOpened" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DriverVersion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ECRError" type="xs:int" />
+          <xs:element minOccurs="0" name="ECRErrorDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Fiscal" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Hour" type="xs:int" />
+          <xs:element minOccurs="0" name="INN" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Is54FZ" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LineLength" type="xs:int" />
+          <xs:element minOccurs="0" name="LogicalNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="Minute" type="xs:int" />
+          <xs:element minOccurs="0" name="Mode" type="xs:int" />
+          <xs:element minOccurs="0" name="Month" type="xs:int" />
+          <xs:element minOccurs="0" name="Operator" type="xs:int" />
+          <xs:element minOccurs="0" name="PassswordEntered" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PointPosition" type="xs:int" />
+          <xs:element minOccurs="0" name="ROMVersion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Second" type="xs:int" />
+          <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SessionExceedLimit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SessionOpened" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SlotNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="Summ" type="xs:double" />
+          <xs:element minOccurs="0" name="UModel" type="xs:int" />
+          <xs:element minOccurs="0" name="Year" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AtolFRStatus" nillable="true" type="tns:AtolFRStatus" />
+  <xs:complexType name="FRParametersKKT">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressSettle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AutomaticMode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AutomaticNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BSOSing" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CalcOnlineSign" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataEncryption" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocumentNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FFDVersionFN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FFDVersionKKT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FNSWebSite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FNSerialNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fiscal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="KKTNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KKTSerialNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OFDOrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OFDVATIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OfflineMode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlaceSettle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrinterAutomatic" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReasonCode" type="xs:int" />
+      <xs:element minOccurs="0" name="SaleExcisableGoods" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SenderEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceSign" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignOfAgent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignOfGambling" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SignOfLottery" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TaxVariant" type="xs:int" />
+      <xs:element minOccurs="0" name="VATIN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FRParametersKKT" nillable="true" type="tns:FRParametersKKT" />
+</xs:schema>

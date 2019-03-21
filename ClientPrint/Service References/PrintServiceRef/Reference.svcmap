@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f610631a-6b74-408a-b126-6b8ae7536c93" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:4398/PrintService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="71204d7c-898b-4a3d-a0ef-6682ef8c3232" SourceId="1" SourceUrl="http://localhost:4398/PrintService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="a04f08fd-4899-4237-9d77-f4d27ac7bf8f" SourceId="1" SourceUrl="http://localhost:4398/PrintService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="e763ab0d-9a9f-4048-8090-864d5340c4d5" SourceId="1" SourceUrl="http://localhost:4398/PrintService/mex" />
+    <MetadataFile FileName="PrintServiceBase.Check.xsd" MetadataType="Schema" ID="1158e5cb-0f7d-46e6-989a-26f563025939" SourceId="1" SourceUrl="http://localhost:4398/PrintService/mex" />
+    <MetadataFile FileName="DeviceNetBase.Enums.xsd" MetadataType="Schema" ID="01bcb909-e3bc-4124-a48c-e5c1bbf017de" SourceId="1" SourceUrl="http://localhost:4398/PrintService/mex" />
+    <MetadataFile FileName="DeviceNetBase.Documents.xsd" MetadataType="Schema" ID="32587b5f-d2df-48e8-8a30-bc8b3106eb55" SourceId="1" SourceUrl="http://localhost:4398/PrintService/mex" />
+    <MetadataFile FileName="DeviceNetBase.Device.xsd" MetadataType="Schema" ID="50661533-58ab-4c4f-a2bd-5975a8b5377b" SourceId="1" SourceUrl="http://localhost:4398/PrintService/mex" />
+    <MetadataFile FileName="System.xsd" MetadataType="Schema" ID="8a6d649b-90c0-4ed3-9190-2a58960f1880" SourceId="1" SourceUrl="http://localhost:4398/PrintService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="a4ca5922-c1c1-4c39-8aa1-81dae829f576" SourceId="1" SourceUrl="http://localhost:4398/PrintService/mex" />
+    <MetadataFile FileName="LicenseManager.xsd" MetadataType="Schema" ID="2583b0ca-5662-4163-b924-298dd1d22422" SourceId="1" SourceUrl="http://localhost:4398/PrintService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

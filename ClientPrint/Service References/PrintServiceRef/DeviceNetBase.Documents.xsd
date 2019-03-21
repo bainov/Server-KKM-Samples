@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DeviceNetBase.Documents" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DeviceNetBase.Documents" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/PrintServiceBase.Check" />
+  <xs:complexType name="BarcodeDoc">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/PrintServiceBase.Check" base="q1:CheckBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aligment" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="AutoSize" type="xs:boolean">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Barcode" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="BarcodeControlCode" type="xs:boolean">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="BarcodeType" type="q2:BarcodeTypes" />
+          <xs:element minOccurs="0" name="Height" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="LeftMargin" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="PrintBarcodeText" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="PrintPurpose" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Scale" type="xs:double">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="ScaleVB" type="xs:double">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BarcodeDoc" nillable="true" type="tns:BarcodeDoc" />
+  <xs:complexType name="OutputParameters">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BacklogDocumentFirstDateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BacklogDocumentFirstNumber" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BacklogDocumentsCounter" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MemoryOverflowFn" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NumberOfChecks" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberOfDocuments" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OfdTimeout" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ResourcesExhaustionFn" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ResourcesFn" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UrgentReplacementFn" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OutputParameters" nillable="true" type="tns:OutputParameters" />
+  <xs:complexType name="Order">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/PrintServiceBase.Check" base="q3:CheckBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Items" nillable="true" type="q3:ArrayOfCheckItem" />
+          <xs:element minOccurs="0" name="Number" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Order" nillable="true" type="tns:Order" />
+  <xs:complexType name="TextFile">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/PrintServiceBase.Check" base="q4:CheckBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Lines" nillable="true" type="q4:ArrayOfPrintLine" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextFile" nillable="true" type="tns:TextFile" />
+  <xs:complexType name="ArrayOfDocumentHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentHistory" nillable="true" type="tns:DocumentHistory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentHistory" nillable="true" type="tns:ArrayOfDocumentHistory" />
+  <xs:complexType name="DocumentHistory">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" minOccurs="0" name="State" type="q5:DocumentPrintState" />
+      <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentHistory" nillable="true" type="tns:DocumentHistory" />
+</xs:schema>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CheckPackage>
+  <Parameters PaymentType="1" TaxVariant="3" CashierName="Наталя Профи" CustomerEmail="" CustomerPhone="">
+    <AgentData />
+    <PurveyorData />
+  </Parameters>
+  <Positions>
+    <FiscalString Name="Грамота"
+		Quantity="15"
+		PriceWithDiscount="7,12"
+		SumWithDiscount="106,87"
+		DiscountSum=""
+		Department="1"
+		Tax="none"
+		SignMethodCalculation="4"
+		SignCalculationObject="4"
+		TaxSum="">
+      <AgentData />
+      <PurveyorData />
+    </FiscalString>
+    <FiscalString Name="Похвальная грамота"
+		Quantity="2"
+		PriceWithDiscount="7,13"
+		SumWithDiscount="14,25"
+		DiscountSum=""
+		Department="1"
+		Tax="none"
+		SignMethodCalculation="4"
+		SignCalculationObject="4"
+		TaxSum="">
+      <AgentData />
+      <PurveyorData />
+    </FiscalString>
+  </Positions>
+  <Payments Cash="0" ElectronicPayment="121,12" Credit="0" AdvancePayment="0" CashProvision="0" />
+</CheckPackage>

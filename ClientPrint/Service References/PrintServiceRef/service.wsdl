@@ -1,0 +1,1215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PrintService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IPrintService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/PrintServiceBase.Check" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DeviceNetBase.Enums" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DeviceNetBase.Documents" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DeviceNetBase.Device" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/LicenseManager" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPrintService_Connect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Connect" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_Connect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_Print_InputMessage">
+    <wsdl:part name="parameters" element="tns:Print" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_Print_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintReport" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintCancelCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintCancelCheck" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintCancelCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintCancelCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintTextFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintTextFile" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintTextFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintTextFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintCash_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintCash" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintCash_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintCashResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintCheck" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintCheckCorrection_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintCheckCorrection" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintCheckCorrection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintCheckCorrectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOrder" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintOpenDrawer_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOpenDrawer" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintOpenDrawer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOpenDrawerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintOpenShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOpenShift" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintOpenShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOpenShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintBarcode_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintBarcode" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintBarcode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintBarcodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_OpenShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpenShift" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_OpenShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpenShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_CloseShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:CloseShift" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_CloseShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CloseShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_AddKKM_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddKKM" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_AddKKM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddKKMResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDevices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevices" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDevices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDeviceIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceIds" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDeviceIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDeviceSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceSettings" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDeviceSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_UpdateKKM_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateKKM" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_UpdateKKM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateKKMResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_DeleteKKM_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteKKM" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_DeleteKKM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteKKMResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_RestartService_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestartService" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_RestartService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestartServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetReportsCountFromDBase_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportsCountFromDBase" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetReportsCountFromDBase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportsCountFromDBaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintOperationFN_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOperationFN" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintOperationFN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintOperationFNResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksCountFromDBase_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksCountFromDBase" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksCountFromDBase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksCountFromDBaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksCountFromDBaseByNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksCountFromDBaseByNumber" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksCountFromDBaseByNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksCountFromDBaseByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksCountFromDBaseByNumberAndDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksCountFromDBaseByNumberAndDate" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksCountFromDBaseByNumberAndDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksCountFromDBaseByNumberAndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksCountFromDBaseByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksCountFromDBaseByDate" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksCountFromDBaseByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksCountFromDBaseByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetCheckFromDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckFromDB" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetCheckFromDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckFromDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetReportsFromDBase_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportsFromDBase" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetReportsFromDBase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportsFromDBaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksFromDBase_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksFromDBase" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksFromDBase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksFromDBaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksFromDBaseByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksFromDBaseByDate" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksFromDBaseByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksFromDBaseByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksFromDBaseByNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksFromDBaseByNumber" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksFromDBaseByNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksFromDBaseByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksFromDBaseByNumberAdnDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksFromDBaseByNumberAdnDate" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetChecksFromDBaseByNumberAdnDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecksFromDBaseByNumberAdnDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDeviceIdByDeviceName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceIdByDeviceName" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDeviceIdByDeviceName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceIdByDeviceNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDocumentHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentHistory" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDocumentHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDeviceStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDeviceStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDeviceKKTParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceKKTParameters" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDeviceKKTParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceKKTParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheck" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDocStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDocStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReport" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_IsPrinted_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsPrinted" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_IsPrinted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsPrintedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintCliche_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintCliche" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintCliche_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintClicheResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_Cut_InputMessage">
+    <wsdl:part name="parameters" element="tns:Cut" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_Cut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetSumm_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSumm" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetSumm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSummResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_MoveCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveCheck" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_MoveCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_Activate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Activate" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_Activate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_ExportLicenseRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExportLicenseRequest" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_ExportLicenseRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExportLicenseRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_ImportLicenseString_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImportLicenseString" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_ImportLicenseString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImportLicenseStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetLicenseSerial_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseSerial" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetLicenseSerial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseSerialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_IsLicenseAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsLicenseAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_IsLicenseAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsLicenseAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetLicenseStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetLicenseStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetLicenseExpireDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseExpireDate" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetLicenseExpireDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseExpireDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDemoDocCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDemoDocCount" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetDemoDocCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDemoDocCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetSerialHDD_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSerialHDD" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetSerialHDD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSerialHDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetStatusParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusParameters" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetStatusParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintCopy_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintCopy" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_PrintCopy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintCopyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_ContinuePrint_InputMessage">
+    <wsdl:part name="parameters" element="tns:ContinuePrint" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_ContinuePrint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ContinuePrintResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetServerVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerVersion" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetServerVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetCharLength_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCharLength" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetCharLength_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCharLengthResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_DeviceStart_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeviceStart" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_DeviceStart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeviceStartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_DeviceStop_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeviceStop" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_DeviceStop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeviceStopResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetTimeOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IPrintService_GetTimeOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimeOutResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPrintService">
+    <wsdl:operation name="Connect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/Connect" message="tns:IPrintService_Connect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/ConnectResponse" message="tns:IPrintService_Connect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Print">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/Print" message="tns:IPrintService_Print_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintResponse" message="tns:IPrintService_Print_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintReport" message="tns:IPrintService_PrintReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintReportResponse" message="tns:IPrintService_PrintReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintCancelCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintCancelCheck" message="tns:IPrintService_PrintCancelCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintCancelCheckResponse" message="tns:IPrintService_PrintCancelCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintTextFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintTextFile" message="tns:IPrintService_PrintTextFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintTextFileResponse" message="tns:IPrintService_PrintTextFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintCash">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintCash" message="tns:IPrintService_PrintCash_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintCashResponse" message="tns:IPrintService_PrintCash_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintCheck" message="tns:IPrintService_PrintCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintCheckResponse" message="tns:IPrintService_PrintCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintCheckCorrection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintCheckCorrection" message="tns:IPrintService_PrintCheckCorrection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintCheckCorrectionResponse" message="tns:IPrintService_PrintCheckCorrection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintOrder" message="tns:IPrintService_PrintOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintOrderResponse" message="tns:IPrintService_PrintOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOpenDrawer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintOpenDrawer" message="tns:IPrintService_PrintOpenDrawer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintOpenDrawerResponse" message="tns:IPrintService_PrintOpenDrawer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOpenShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintOpenShift" message="tns:IPrintService_PrintOpenShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintOpenShiftResponse" message="tns:IPrintService_PrintOpenShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintBarcode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintBarcode" message="tns:IPrintService_PrintBarcode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintBarcodeResponse" message="tns:IPrintService_PrintBarcode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/OpenShift" message="tns:IPrintService_OpenShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/OpenShiftResponse" message="tns:IPrintService_OpenShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/CloseShift" message="tns:IPrintService_CloseShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/CloseShiftResponse" message="tns:IPrintService_CloseShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddKKM">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/AddKKM" message="tns:IPrintService_AddKKM_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/AddKKMResponse" message="tns:IPrintService_AddKKM_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDevices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetDevices" message="tns:IPrintService_GetDevices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetDevicesResponse" message="tns:IPrintService_GetDevices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceIds">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetDeviceIds" message="tns:IPrintService_GetDeviceIds_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetDeviceIdsResponse" message="tns:IPrintService_GetDeviceIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetDeviceSettings" message="tns:IPrintService_GetDeviceSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetDeviceSettingsResponse" message="tns:IPrintService_GetDeviceSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKKM">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/UpdateKKM" message="tns:IPrintService_UpdateKKM_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/UpdateKKMResponse" message="tns:IPrintService_UpdateKKM_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKKM">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/DeleteKKM" message="tns:IPrintService_DeleteKKM_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/DeleteKKMResponse" message="tns:IPrintService_DeleteKKM_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RestartService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/RestartService" message="tns:IPrintService_RestartService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/RestartServiceResponse" message="tns:IPrintService_RestartService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportsCountFromDBase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetReportsCountFromDBase" message="tns:IPrintService_GetReportsCountFromDBase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetReportsCountFromDBaseResponse" message="tns:IPrintService_GetReportsCountFromDBase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintOperationFN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintOperationFN" message="tns:IPrintService_PrintOperationFN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintOperationFNResponse" message="tns:IPrintService_PrintOperationFN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksCountFromDBase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetChecksCountFromDBase" message="tns:IPrintService_GetChecksCountFromDBase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetChecksCountFromDBaseResponse" message="tns:IPrintService_GetChecksCountFromDBase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksCountFromDBaseByNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetChecksCountFromDBaseByNumber" message="tns:IPrintService_GetChecksCountFromDBaseByNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetChecksCountFromDBaseByNumberResponse" message="tns:IPrintService_GetChecksCountFromDBaseByNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksCountFromDBaseByNumberAndDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetChecksCountFromDBaseByNumberAndDate" message="tns:IPrintService_GetChecksCountFromDBaseByNumberAndDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetChecksCountFromDBaseByNumberAndDateResponse" message="tns:IPrintService_GetChecksCountFromDBaseByNumberAndDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksCountFromDBaseByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetChecksCountFromDBaseByDate" message="tns:IPrintService_GetChecksCountFromDBaseByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetChecksCountFromDBaseByDateResponse" message="tns:IPrintService_GetChecksCountFromDBaseByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckFromDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetCheckFromDB" message="tns:IPrintService_GetCheckFromDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetCheckFromDBResponse" message="tns:IPrintService_GetCheckFromDB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportsFromDBase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetReportsFromDBase" message="tns:IPrintService_GetReportsFromDBase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetReportsFromDBaseResponse" message="tns:IPrintService_GetReportsFromDBase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksFromDBase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetChecksFromDBase" message="tns:IPrintService_GetChecksFromDBase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetChecksFromDBaseResponse" message="tns:IPrintService_GetChecksFromDBase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksFromDBaseByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetChecksFromDBaseByDate" message="tns:IPrintService_GetChecksFromDBaseByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetChecksFromDBaseByDateResponse" message="tns:IPrintService_GetChecksFromDBaseByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksFromDBaseByNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetChecksFromDBaseByNumber" message="tns:IPrintService_GetChecksFromDBaseByNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetChecksFromDBaseByNumberResponse" message="tns:IPrintService_GetChecksFromDBaseByNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksFromDBaseByNumberAdnDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetChecksFromDBaseByNumberAdnDate" message="tns:IPrintService_GetChecksFromDBaseByNumberAdnDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetChecksFromDBaseByNumberAdnDateResponse" message="tns:IPrintService_GetChecksFromDBaseByNumberAdnDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceIdByDeviceName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetDeviceIdByDeviceName" message="tns:IPrintService_GetDeviceIdByDeviceName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetDeviceIdByDeviceNameResponse" message="tns:IPrintService_GetDeviceIdByDeviceName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetDocumentHistory" message="tns:IPrintService_GetDocumentHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetDocumentHistoryResponse" message="tns:IPrintService_GetDocumentHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetDeviceStatus" message="tns:IPrintService_GetDeviceStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetDeviceStatusResponse" message="tns:IPrintService_GetDeviceStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceKKTParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetDeviceKKTParameters" message="tns:IPrintService_GetDeviceKKTParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetDeviceKKTParametersResponse" message="tns:IPrintService_GetDeviceKKTParameters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetCheck" message="tns:IPrintService_GetCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetCheckResponse" message="tns:IPrintService_GetCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetDocStatus" message="tns:IPrintService_GetDocStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetDocStatusResponse" message="tns:IPrintService_GetDocStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetReport" message="tns:IPrintService_GetReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetReportResponse" message="tns:IPrintService_GetReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPrinted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/IsPrinted" message="tns:IPrintService_IsPrinted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/IsPrintedResponse" message="tns:IPrintService_IsPrinted_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintCliche">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintCliche" message="tns:IPrintService_PrintCliche_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintClicheResponse" message="tns:IPrintService_PrintCliche_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Cut">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/Cut" message="tns:IPrintService_Cut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/CutResponse" message="tns:IPrintService_Cut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSumm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetSumm" message="tns:IPrintService_GetSumm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetSummResponse" message="tns:IPrintService_GetSumm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/MoveCheck" message="tns:IPrintService_MoveCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/MoveCheckResponse" message="tns:IPrintService_MoveCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Activate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/Activate" message="tns:IPrintService_Activate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/ActivateResponse" message="tns:IPrintService_Activate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportLicenseRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/ExportLicenseRequest" message="tns:IPrintService_ExportLicenseRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/ExportLicenseRequestResponse" message="tns:IPrintService_ExportLicenseRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportLicenseString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/ImportLicenseString" message="tns:IPrintService_ImportLicenseString_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/ImportLicenseStringResponse" message="tns:IPrintService_ImportLicenseString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseSerial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetLicenseSerial" message="tns:IPrintService_GetLicenseSerial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetLicenseSerialResponse" message="tns:IPrintService_GetLicenseSerial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsLicenseAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/IsLicenseAvailable" message="tns:IPrintService_IsLicenseAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/IsLicenseAvailableResponse" message="tns:IPrintService_IsLicenseAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetLicenseStatus" message="tns:IPrintService_GetLicenseStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetLicenseStatusResponse" message="tns:IPrintService_GetLicenseStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseExpireDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetLicenseExpireDate" message="tns:IPrintService_GetLicenseExpireDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetLicenseExpireDateResponse" message="tns:IPrintService_GetLicenseExpireDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDemoDocCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetDemoDocCount" message="tns:IPrintService_GetDemoDocCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetDemoDocCountResponse" message="tns:IPrintService_GetDemoDocCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSerialHDD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetSerialHDD" message="tns:IPrintService_GetSerialHDD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetSerialHDDResponse" message="tns:IPrintService_GetSerialHDD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetStatusParameters" message="tns:IPrintService_GetStatusParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetStatusParametersResponse" message="tns:IPrintService_GetStatusParameters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintCopy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/PrintCopy" message="tns:IPrintService_PrintCopy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/PrintCopyResponse" message="tns:IPrintService_PrintCopy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContinuePrint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/ContinuePrint" message="tns:IPrintService_ContinuePrint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/ContinuePrintResponse" message="tns:IPrintService_ContinuePrint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetServerVersion" message="tns:IPrintService_GetServerVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetServerVersionResponse" message="tns:IPrintService_GetServerVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCharLength">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetCharLength" message="tns:IPrintService_GetCharLength_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetCharLengthResponse" message="tns:IPrintService_GetCharLength_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceStart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/DeviceStart" message="tns:IPrintService_DeviceStart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/DeviceStartResponse" message="tns:IPrintService_DeviceStart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceStop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/DeviceStop" message="tns:IPrintService_DeviceStop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/DeviceStopResponse" message="tns:IPrintService_DeviceStop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrintService/GetTimeOut" message="tns:IPrintService_GetTimeOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrintService/GetTimeOutResponse" message="tns:IPrintService_GetTimeOut_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IPrintService" type="tns:IPrintService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IPrintService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Connect">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/Connect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Print">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/Print" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintReport">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintCancelCheck">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintCancelCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintTextFile">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintTextFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintCash">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintCash" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintCheck">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintCheckCorrection">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintCheckCorrection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOrder">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOpenDrawer">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintOpenDrawer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOpenShift">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintOpenShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintBarcode">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintBarcode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenShift">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/OpenShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseShift">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/CloseShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddKKM">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/AddKKM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevices">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetDevices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceIds">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetDeviceIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceSettings">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetDeviceSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKKM">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/UpdateKKM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKKM">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/DeleteKKM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartService">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/RestartService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportsCountFromDBase">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetReportsCountFromDBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintOperationFN">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintOperationFN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksCountFromDBase">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetChecksCountFromDBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksCountFromDBaseByNumber">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetChecksCountFromDBaseByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksCountFromDBaseByNumberAndDate">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetChecksCountFromDBaseByNumberAndDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksCountFromDBaseByDate">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetChecksCountFromDBaseByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckFromDB">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetCheckFromDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportsFromDBase">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetReportsFromDBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksFromDBase">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetChecksFromDBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksFromDBaseByDate">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetChecksFromDBaseByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksFromDBaseByNumber">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetChecksFromDBaseByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChecksFromDBaseByNumberAdnDate">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetChecksFromDBaseByNumberAdnDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceIdByDeviceName">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetDeviceIdByDeviceName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentHistory">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetDocumentHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceStatus">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetDeviceStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceKKTParameters">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetDeviceKKTParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheck">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocStatus">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetDocStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReport">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPrinted">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/IsPrinted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintCliche">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintCliche" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cut">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/Cut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSumm">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetSumm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveCheck">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/MoveCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Activate">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/Activate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportLicenseRequest">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/ExportLicenseRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportLicenseString">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/ImportLicenseString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseSerial">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetLicenseSerial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsLicenseAvailable">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/IsLicenseAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseStatus">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetLicenseStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseExpireDate">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetLicenseExpireDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDemoDocCount">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetDemoDocCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSerialHDD">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetSerialHDD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusParameters">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetStatusParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintCopy">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/PrintCopy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContinuePrint">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/ContinuePrint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerVersion">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetServerVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCharLength">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetCharLength" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceStart">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/DeviceStart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceStop">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/DeviceStop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeOut">
+      <soap12:operation soapAction="http://tempuri.org/IPrintService/GetTimeOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PrintService">
+    <wsdl:port name="WSHttpBinding_IPrintService" binding="tns:WSHttpBinding_IPrintService">
+      <soap12:address location="http://localhost:4398/PrintService/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:4398/PrintService/</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
